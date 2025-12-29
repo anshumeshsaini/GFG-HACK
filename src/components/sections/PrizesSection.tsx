@@ -64,7 +64,8 @@ const PrizesSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen py-32 px-4 overflow-hidden">
+    <section ref={sectionRef} className="relative min-h-screen py-32 px-4 overflow-hidden"
+    id="prizes">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-void-deep to-background" />
 
       <div className="relative z-10 max-w-6xl mx-auto">

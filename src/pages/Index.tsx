@@ -16,6 +16,7 @@ import RegisterSection from '@/components/sections/RegisterSection';
 import FooterSection from '@/components/sections/FooterSection';
 import useLenis from '@/hooks/useLenis';
 import useGsapScroll from '@/hooks/useGsapScroll';
+import CircularNav from '@/components/sections/CircularNav';
 
 const Index = () => {
   // Initialize smooth scroll and GSAP animations
@@ -38,7 +39,9 @@ const Index = () => {
       <UpsideDownToggle />
 
       {/* Main Content */}
+      
       <main>
+      <CircularNav />
         <HeroSection />
         <AboutSection />
         <WhyJoinSection />

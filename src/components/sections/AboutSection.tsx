@@ -1,6 +1,7 @@
 const AboutSection = () => {
   return (
-    <section className="relative min-h-screen py-32 px-4 overflow-hidden">
+    <section className="relative min-h-screen py-32 px-4 overflow-hidden"
+    id="about">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary to-background" />
 

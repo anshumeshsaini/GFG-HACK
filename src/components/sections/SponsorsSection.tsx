@@ -13,7 +13,8 @@ const sponsors = [
 
 const SponsorsSection = () => {
   return (
-    <section className="relative py-32 overflow-hidden">
+    <section className="relative py-32 overflow-hidden"
+    id="sponsors">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-void-deep to-background" />
 
       <div className="relative z-10">

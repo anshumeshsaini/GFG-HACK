@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
+import bgclip from '../../assets/2196-155813511.mp4';
 
 const HeroSection = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLButtonElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -44,6 +46,15 @@ const HeroSection = () => {
       '-=0.5'
     );
 
+    // Video fade in
+    if (videoRef.current) {
+      tl.fromTo(videoRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 1.5, ease: 'power2.inOut' },
+        '-=0.8'
+      );
+    }
+
     return () => {
       clearTimeout(timer);
       tl.kill();
@@ -66,24 +77,39 @@ const HeroSection = () => {
     });
   };
 
-  const titleText = "UPSIDE DOWN";
+  const titleText = "GREEKVERSE";
   const subtitleText = "HACKATHON";
 
   return (
     <section 
       ref={containerRef}
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
+      id-="home"
     >
-      {/* Background layers */}
-      <div className="absolute inset-0 bg-gradient-to-b from-void-deep via-background to-background" />
+      {/* Video Background */}
+      <video
+        ref={videoRef}
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-100"
+        style={{ filter: 'brightness(2) contrast(1.2)' }}
+      >
+        <source src={bgclip} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* Dark overlay for better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-void-deep/90 via-background/70 to-background/80" />
       
       {/* Animated background pattern */}
       <div 
-        className="absolute inset-0 opacity-10"
+        className="absolute inset-0 opacity-20 mix-blend-overlay"
         style={{
           backgroundImage: `
-            radial-gradient(circle at 20% 30%, hsl(0 100% 50% / 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 80% 70%, hsl(0 100% 50% / 0.1) 0%, transparent 50%)
+            radial-gradient(circle at 20% 30%, hsl(0 100% 50% / 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 80% 70%, hsl(0 100% 50% / 0.3) 0%, transparent 50%)
           `,
         }}
       />
@@ -149,8 +175,8 @@ const HeroSection = () => {
       </div>
 
       {/* Decorative elements */}
-      <div className="absolute top-1/4 left-10 w-64 h-64 bg-crimson/5 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-crimson/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+      <div className="absolute top-1/4 left-10 w-64 h-64 bg-crimson/10 rounded-full blur-3xl animate-pulse mix-blend-overlay" />
+      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-crimson/10 rounded-full blur-3xl animate-pulse mix-blend-overlay" style={{ animationDelay: '1s' }} />
     </section>
   );
 };

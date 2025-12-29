@@ -74,6 +74,7 @@ const RegisterSection = () => {
     <section 
       ref={sectionRef}
       className="relative min-h-screen flex flex-col items-center justify-center py-32 px-4 overflow-hidden"
+      id="register"
     >
       {/* Intense background */}
       <div className="absolute inset-0 bg-void-deep" />

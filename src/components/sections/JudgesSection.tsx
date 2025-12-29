@@ -27,7 +27,8 @@ const judges = [
 
 const JudgesSection = () => {
   return (
-    <section className="relative min-h-screen py-32 px-4 overflow-hidden">
+    <section className="relative min-h-screen py-32 px-4 overflow-hidden"
+    id="judges">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary to-background" />
 
       <div className="relative z-10 max-w-6xl mx-auto">
